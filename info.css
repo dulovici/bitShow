@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header {
+    background-color: #343a40;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 30px;
+}
+header h4 {
+    color: whitesmoke;
+}
+
+main h1 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+main img{
+    width: 400px;
+}
+footer {
+    height: 60px;
+    background-color: #343a40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer p {
+    color: whitesmoke;
+}
+
+.wraper {
+    width: 1000px;
+    margin: auto;
+}
+.upper {
+    display: flex;
+}
+.info {
+    margin-left: 50px;
+}
+.details {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.upper h3 {
+    margin-top: 30px;
+}

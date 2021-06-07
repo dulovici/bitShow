@@ -1,0 +1,55 @@
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header {
+    background-color: #343a40;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 30px;
+}
+header h4 {
+    color: whitesmoke;
+}
+
+main h1 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+main a {
+    text-align: center;
+    font-size: 20px;
+    color: rgb(46, 46, 93);
+}
+
+footer {
+    height: 60px;
+    background-color: #343a40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer p {
+    color: whitesmoke;
+}
+
+.cards {
+    margin: auto;
+    margin-top: 30px;
+    width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin-left: 100px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
