@@ -1,7 +1,9 @@
 'use strict'
 
-const id = localStorage.getItem('id');
+const idRef = localStorage.getItem('id');
 
+const srcList = document.querySelector('.src-list');
+const input = document.querySelector('.input');
 const title = document.querySelector('.title');
 const img = document.querySelector('.img');
 const details = document.querySelector('.details');
@@ -9,9 +11,7 @@ const seasons = document.querySelector('.seasons');
 const sesSpan = document.querySelector('.seasHdr span');
 const cast = document.querySelector('.cast');
 
-
-
-function generateAbout() {
+function generateAbout(id) {
     fetch(`http://api.tvmaze.com/shows/${id}`)
         .then(res => res.json())
         .then(data => {
@@ -46,10 +46,42 @@ function generateAbout() {
         })
 }
 
+function searchMovies(e) {
+    fetch(`http://api.tvmaze.com/search/shows?q=${e.target.value}`)
+        .then(res => res.json())
+        .then(data => {
+            const dta = data;
+            console.log(dta);
+            dta.forEach(e => {
+                const id = e.show.id;
+                const li = document.createElement('li');
+                li.setAttribute('class', 'li')
+                li.textContent = e.show.name;
+                srcList.append(li)
 
-generateAbout()
+                li.addEventListener('click', function () {
+                    generateAbout(id)
+                })
+            })
+        })
+}
+
+
+generateAbout(idRef);
+
+input.addEventListener('keyup', function (e) {
+    srcList.innerHTML = '';
+    searchMovies(e);
+})
+
+
+
+
+
+
 
 
 // http://api.tvmaze.com/shows/${id}    show
 // http://api.tvmaze.com/shows/${id}/seasons  seasons
 // http://api.tvmaze.com/shows/${id}/cast   cast 
+// http://api.tvmaze.com/search/shows?q=
