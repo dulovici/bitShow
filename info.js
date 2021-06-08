@@ -2,6 +2,7 @@
 
 const idRef = localStorage.getItem('id');
 
+const home = document.querySelector('header h4');
 const srcList = document.querySelector('.src-list');
 const input = document.querySelector('.input');
 const title = document.querySelector('.title');
@@ -74,6 +75,9 @@ input.addEventListener('keyup', function (e) {
     searchMovies(e);
 })
 
+home.addEventListener('click', function () {
+    window.location = './index.html';
+})
 
 
 

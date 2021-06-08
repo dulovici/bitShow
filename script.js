@@ -1,7 +1,24 @@
 'use strict'
 
+
+const srcList = document.querySelector('.src-list');
+const input = document.querySelector('.input');
 const cards = document.querySelector('.cards');
 
+
+function getData() {
+    fetch('http://api.tvmaze.com/shows')
+        .then(res => res.json())
+        .then(data => {
+            const dta = [];
+            data.map((e, i) => {
+                if (i < 50) dta.push(e);
+            })
+
+            renderPage(dta)
+        });
+
+}
 
 
 function renderPage(data) {
@@ -26,22 +43,32 @@ function renderPage(data) {
     });
 }
 
-// ./info.html
 
-function getData() {
-    fetch('http://api.tvmaze.com/shows')
+function searchMovies(e) {
+    fetch(`http://api.tvmaze.com/search/shows?q=${e.target.value}`)
         .then(res => res.json())
         .then(data => {
-            const dta = [];
-            data.map((e, i) => {
-                if (i < 50) dta.push(e);
-            })
-
+            const dta = data;
             console.log(dta);
-            renderPage(dta)
-        });
+            dta.forEach(e => {
+                const id = e.show.id;
+                const li = document.createElement('li');
+                li.setAttribute('class', 'li')
+                li.textContent = e.show.name;
+                srcList.append(li)
 
+                li.addEventListener('click', function () {
+                    localStorage.setItem('id', e.show.id);
+                    window.location = './info.html';
+                })
+            })
+        })
 }
 
 
 getData()
+
+input.addEventListener('keyup', function (e) {
+    srcList.innerHTML = '';
+    searchMovies(e);
+})

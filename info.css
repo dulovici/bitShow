@@ -13,6 +13,7 @@ header {
 }
 header h4 {
     color: whitesmoke;
+    cursor: pointer;
 }
 
 main h1 {
