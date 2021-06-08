@@ -2,6 +2,7 @@
 
 const idRef = localStorage.getItem('id');
 
+const body = document.querySelector('body');
 const home = document.querySelector('header h4');
 const srcList = document.querySelector('.src-list');
 const input = document.querySelector('.input');
@@ -62,7 +63,8 @@ function searchMovies(e) {
                 li.addEventListener('click', function () {
                     seasons.innerHTML = '';
                     cast.innerHTML = '';
-                    generateAbout(id)
+                    generateAbout(id);
+                    input.value = ''
                 })
             })
         })
@@ -76,11 +78,13 @@ input.addEventListener('keyup', function (e) {
     searchMovies(e);
 })
 
+body.addEventListener('click', function () {
+    srcList.innerHTML = ''
+})
+
 home.addEventListener('click', function () {
     window.location = './index.html';
 })
-
-
 
 
 

@@ -1,6 +1,6 @@
 'use strict'
 
-
+const body = document.querySelector('body');
 const srcList = document.querySelector('.src-list');
 const input = document.querySelector('.input');
 const cards = document.querySelector('.cards');
@@ -71,4 +71,8 @@ getData()
 input.addEventListener('keyup', function (e) {
     srcList.innerHTML = '';
     searchMovies(e);
+})
+
+body.addEventListener('click', function () {
+    srcList.innerHTML = ''
 })
