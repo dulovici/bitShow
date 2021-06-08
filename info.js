@@ -61,6 +61,8 @@ function searchMovies(e) {
                 srcList.append(li)
 
                 li.addEventListener('click', function () {
+                    seasons.innerHTML = '';
+                    cast.innerHTML = '';
                     generateAbout(id)
                 })
             })
