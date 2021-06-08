@@ -52,7 +52,6 @@ function searchMovies(e) {
         .then(res => res.json())
         .then(data => {
             const dta = data;
-            console.log(dta);
             dta.forEach(e => {
                 const id = e.show.id;
                 const li = document.createElement('li');
